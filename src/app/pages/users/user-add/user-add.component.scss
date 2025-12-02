@@ -1,0 +1,149 @@
+@import "../../../@theme/styles/themes";
+
+@include nb-install-component() {
+  nb-card {
+    margin: 2rem auto;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    nb-card-header {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.2rem;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 12px 12px 0 0;
+    }
+
+    nb-card-body {
+      background-color: #f9fafc;
+      padding: 2rem;
+    }
+  }
+
+  form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input[nbInput],
+    nb-select {
+      border-radius: 8px;
+      border: 1px solid #e5e9f2;
+      padding: 12px;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      width: 100%;
+      background: #fff;
+      max-width: 100% !important;
+      &:focus {
+        border-color: #4facfe;
+        box-shadow: 0 0 6px rgba(79, 172, 254, 0.4);
+      }
+    }
+
+    .file-upload {
+      position: relative;
+      width: 100%;
+
+      input[type="file"] {
+        display: none;
+      }
+
+      .file-label {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        background: #4facfe;
+        color: #fff;
+        text-align: center;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background: #00f2fe;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+      }
+    }
+
+    button[nbButton] {
+      margin-top: 1rem;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+
+      &:hover:enabled {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      &:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+    }
+
+    .error {
+      font-size: 13px;
+      color: #e74c3c;
+      padding: 6px 8px;
+      background: rgba(231, 76, 60, 0.08);
+      border-radius: 6px;
+      width: 100%;
+      text-align: right;
+      animation: fadeIn 0.3s ease;
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-5px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nb-card {
+      max-width: 95%;
+    }
+
+    form {
+      gap: 0.8rem;
+
+      input[nbInput],
+      nb-select,
+      .file-label,
+      button[nbButton] {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  }
+
+  .preview {
+    margin-top: 1rem;
+    text-align: center;
+
+    img {
+      max-width: 120px;
+      max-height: 120px;
+      border-radius: 50%;
+      border: 2px solid #4facfe;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+  }
+}

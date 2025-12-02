@@ -1,0 +1,83 @@
+@import "../../../@theme/styles/themes";
+
+@include nb-install-component() {
+  .user-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li {
+      margin-bottom: 1rem;
+      background: #fff;
+      border: 1px solid #e5e9f2;
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      transition: all 0.2s ease;
+
+      &:hover {
+        background: #f0f7ff;
+        border-color: #4facfe;
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+
+  .user-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+
+    .user-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 2px solid #4facfe;
+      object-fit: cover;
+    }
+
+    .user-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+
+      .user-name {
+        font-weight: 600;
+        color: #333;
+        font-size: 1rem;
+      }
+
+      .user-username {
+        font-size: 0.85rem;
+        color: #4facfe;
+      }
+
+      .user-email {
+        font-size: 0.9rem;
+        color: #666;
+      }
+
+      .user-phone,
+      .user-gender {
+        font-size: 0.85rem;
+        color: #999;
+      }
+    }
+  }
+  .user-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid #4facfe;
+  object-fit: cover;
+}
+
+.user-avatar-icon {
+  font-size: 50px;
+  color: #999;
+  border: 2px solid #4facfe;
+  border-radius: 50%;
+  padding: 8px;
+}
+
+}

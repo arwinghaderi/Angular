@@ -1,0 +1,47 @@
+@import "./themes";
+
+@mixin nb-overrides() {
+  nb-select.size-medium button {
+    padding: 0.4375rem 2.2rem 0.4375rem 1.125rem !important;
+
+    nb-icon {
+      right: 0.41rem !important;
+    }
+  }
+
+  .custom-primary {
+    background-color: beige !important;
+  }
+
+  nb-select {
+    background-color: transparent !important;
+    color: #222 !important;
+    border-radius: 99px;
+
+    button {
+      border: none;
+
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+
+      nb-icon {
+        font-size: small;
+        color: #ffffff !important;
+      }
+
+      span {
+        color: white;
+      }
+    }
+  }
+
+  nb-option {
+    font-family: "Vazir", sans-serif;
+    &:hover {
+      background-color: #9d1010 !important;
+    }
+    &.selected {
+      background-color: #00284b !important;
+      color: #fff !important;
+    }
+  }
+}

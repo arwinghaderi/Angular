@@ -1,0 +1,27 @@
+<nb-card class="user-list-card">
+    <nb-card-header>لیست کاربرها</nb-card-header>
+    <nb-card-body>
+        <ul class="user-list">
+            <li *ngFor="let user of (users$ | async)">
+                <div class="user-info">
+                    <ng-container *ngIf="user.image; else defaultAvatar">
+                        <img class="user-avatar" [src]="user.image" alt="avatar" />
+                    </ng-container>
+
+                    <ng-template #defaultAvatar>
+                        <nb-icon icon="person-outline" pack="eva" class="user-avatar-icon"></nb-icon>
+                    </ng-template>
+
+                    <div class="user-details">
+                        <span class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
+                        <span class="user-username">@{{ user.username }}</span>
+                        <span class="user-email">{{ user.email }}</span>
+                        <span class="user-phone">{{ user.phone }}</span>
+                        <span class="user-gender">{{ user.gender || 'نامشخص' }}</span>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </nb-card-body>
+</nb-card>

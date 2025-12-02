@@ -1,0 +1,52 @@
+<nb-card>
+    <nb-card-header>افزودن کاربر</nb-card-header>
+    <nb-card-body>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <input nbInput placeholder="نام" formControlName="firstName" />
+            <div *ngIf="userForm.get('firstName')?.invalid && userForm.get('firstName')?.touched" class="error">
+                <span *ngIf="userForm.get('firstName')?.errors?.['required']">نام الزامی است</span>
+                <span *ngIf="userForm.get('firstName')?.errors?.['minlength']">نام باید حداقل ۲ کاراکتر باشد</span>
+            </div>
+
+            <input nbInput placeholder="نام خانوادگی" formControlName="lastName" />
+            <div *ngIf="userForm.get('lastName')?.invalid && userForm.get('lastName')?.touched" class="error">
+                <span *ngIf="userForm.get('lastName')?.errors?.['required']">نام خانوادگی الزامی است</span>
+                <span *ngIf="userForm.get('lastName')?.errors?.['minlength']">نام خانوادگی باید حداقل ۲ کاراکتر
+                    باشد</span>
+            </div>
+
+            <input nbInput placeholder="شماره موبایل" formControlName="phone" />
+            <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.touched" class="error">
+                <span *ngIf="userForm.get('phone')?.errors?.['required']">شماره موبایل الزامی است</span>
+                <span *ngIf="userForm.get('phone')?.errors?.['pattern']">شماره موبایل معتبر وارد کنید (مثلاً
+                    09123456789)</span>
+            </div>
+
+            <input nbInput placeholder="ایمیل" formControlName="email" />
+            <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.touched" class="error">
+                <span *ngIf="userForm.get('email')?.errors?.['required']">ایمیل الزامی است</span>
+                <span *ngIf="userForm.get('email')?.errors?.['email']">ایمیل معتبر وارد کنید</span>
+            </div>
+
+            <nb-select placeholder="جنسیت (اختیاری)" formControlName="gender">
+                <nb-option value="male">مرد</nb-option>
+                <nb-option value="female">زن</nb-option>
+            </nb-select>
+
+            <input nbInput placeholder="یوزرنیم (اختیاری)" formControlName="username" />
+
+            <div class="file-upload">
+                <label for="fileInput" class="file-label">📂 انتخاب عکس پروفایل</label>
+                <input id="fileInput" type="file" (change)="onFileSelected($event)" />
+            </div>
+
+            <div *ngIf="previewImage" class="preview">
+                <img [src]="previewImage" alt="preview" />
+            </div>
+
+            <button nbButton status="success" type="submit" [disabled]="userForm.invalid">
+                ثبت
+            </button>
+        </form>
+    </nb-card-body>
+</nb-card>
